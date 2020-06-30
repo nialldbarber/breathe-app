@@ -1,5 +1,6 @@
 import React, { FC, ReactChild } from 'react';
 import { View } from 'react-native';
+import Button from '@/components/Button/Button';
 import Title from '@/components/Typography/Title';
 
 interface ExerciseProps {
@@ -7,11 +8,12 @@ interface ExerciseProps {
   text: string;
 }
 
-const Exercise: FC<ExerciseProps> = ({ children, text }) => {
+const Exercise: FC<ExerciseProps> = ({ text, children }) => {
   return (
     <View>
       <Title text={text} />
       {children}
+      <Button text="Begin Breathing!" />
     </View>
     // <Modal
     //   description={<Description data={data} />}

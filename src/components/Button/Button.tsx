@@ -9,12 +9,15 @@ import { colors } from '@/styles/utils/colors';
 
 interface ButtonProps {
   text: string;
+  addedStyles?: {
+    [key: string]: any;
+  };
 }
 
-const Button: FC<ButtonProps> = ({ text }) => {
+const Button: FC<ButtonProps> = ({ text, addedStyles }) => {
   return (
     <TouchableHighlight
-      style={[buttonContainer, styles.buttonContainer]}
+      style={[buttonContainer, styles.buttonContainer, addedStyles]}
       underlayColor={colors.purple}
     >
       <Text style={[button, styles.text]}>{text}</Text>
@@ -27,9 +30,7 @@ const styles = StyleSheet.create({
     fontSize: wp('4%'),
   },
   buttonContainer: {
-    marginBottom: hp('4%'),
     width: wp('50%'),
-    alignSelf: 'center',
   },
 });
 

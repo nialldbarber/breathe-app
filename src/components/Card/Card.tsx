@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -9,7 +9,7 @@ import { colors } from '@/styles/utils/colors';
 interface CardProps {
   name: string;
   navigate: () => string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const Card: FC<CardProps> = ({ name, navigate, children }) => {

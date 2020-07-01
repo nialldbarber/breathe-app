@@ -3,11 +3,14 @@ import { Text } from 'react-native';
 
 interface TitleProps {
   text: string;
+  addedStyles?: {
+    [key: string]: any;
+  };
 }
 
-const Title: FC<TitleProps> = ({ text }) => (
+const Title: FC<TitleProps> = ({ text, addedStyles }) => (
   <>
-    <Text>{text}</Text>
+    <Text style={addedStyles}>{text}</Text>
   </>
 );
 

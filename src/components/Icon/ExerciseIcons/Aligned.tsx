@@ -7,12 +7,12 @@ import {
 import { Props } from '@/components/Icon/ExerciseIcons/types';
 
 const Aligned: FC<Props> = (
-  { height, width, home = true, styleType },
+  { height, width, home = true, addedStyles },
   props
 ) => {
   let style;
 
-  if (!home) style = { ...styleType };
+  if (!home) style = { ...addedStyles };
   else {
     style = {
       left: wp('33%'),

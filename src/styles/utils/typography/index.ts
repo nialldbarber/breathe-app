@@ -18,7 +18,6 @@ const subtitle: AnyStyles = {
   textAlign: 'center',
   fontWeight: '700',
   color: colors.black,
-  marginTop: 30,
 };
 
 export { title, subtitle };

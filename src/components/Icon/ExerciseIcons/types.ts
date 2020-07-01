@@ -1,4 +1,4 @@
-interface StyleType {
+interface AddedStyles {
   [name: string]: any;
 }
 
@@ -6,5 +6,5 @@ export interface Props {
   height?: number;
   width?: number;
   home: boolean;
-  styleType?: StyleType;
+  addedStyles?: AddedStyles;
 }

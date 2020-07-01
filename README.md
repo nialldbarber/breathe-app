@@ -1,7 +1,7 @@
-- Absolute imports
+# Breathe 🌬️
 
-- Match pure js code
+### Todos
 
-- Figure out a decent modal design and functionality
+- [ ] Figure out a decent modal design and functionality
 
-- Breathing animation
+- [ ] Breathing animation

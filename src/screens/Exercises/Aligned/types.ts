@@ -3,8 +3,8 @@ export interface Instruction {
   title: string;
   content: string;
   color: string;
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
 }
 
 export interface Instructions {

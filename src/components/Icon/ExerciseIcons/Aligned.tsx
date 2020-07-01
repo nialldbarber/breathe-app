@@ -6,10 +6,7 @@ import {
 } from 'react-native-responsive-screen';
 import { Props } from '@/components/Icon/ExerciseIcons/types';
 
-const Aligned: FC<Props> = (
-  { height, width, home = true, addedStyles },
-  props
-) => {
+const Aligned: FC<Props> = ({ height, width, home = true, addedStyles }) => {
   let style;
 
   if (!home) style = { ...addedStyles };
@@ -26,7 +23,6 @@ const Aligned: FC<Props> = (
       viewBox="0 0 512 512"
       width={width ?? wp('35%')}
       style={style}
-      {...props}
     >
       <Path
         d="M106.907 34.277c53.388 0 89.269 29.518 96.668 63.699 7.163 33.086-19.334 63.698-96.668 63.698S3.076 131.062 10.239 97.976c7.399-34.181 43.279-63.699 96.668-63.699z"

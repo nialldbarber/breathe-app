@@ -14,16 +14,16 @@ const Home = ({ navigation: { navigate } }) => {
       <>
         <Text style={title}>Exercises</Text>
         <Card name="Awake" navigate={navigate}>
-          <Awake home={false} />
+          <Awake home />
         </Card>
         <Card name="Aligned" navigate={navigate}>
-          <Aligned home={false} />
+          <Aligned home />
         </Card>
         <Card name="Aware" navigate={navigate}>
-          <Aware home={false} />
+          <Aware home />
         </Card>
         <Card name="Asleep" navigate={navigate}>
-          <Asleep home={false} />
+          <Asleep home />
         </Card>
       </>
     </HomeLayout>

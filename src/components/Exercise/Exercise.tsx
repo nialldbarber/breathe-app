@@ -1,33 +1,37 @@
-import React, { FC, ReactChild } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { FC, ReactChild, ReactNode } from 'react';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 import Button from '@/components/Button/Button';
 import Title from '@/components/Typography/Title';
 import { subtitle } from '@/styles/utils/typography';
+import { Instructions } from '@/screens/Exercises/Aligned/types';
+import { backgroundImage } from '@/styles/utils/layout/icons';
 
 interface ExerciseProps {
-  children: ReactChild;
-  text: string;
+  instruction?: Instructions;
+  background?: ReactNode;
+  children?: ReactChild;
 }
 
-const Exercise: FC<ExerciseProps> = ({ text, children }) => {
+const Exercise: FC<ExerciseProps> = ({ instruction, background, children }) => {
   return (
     <View style={styles.exercise}>
+      <View style={backgroundImage}>{background}</View>
       <View style={styles.title}>
-        <Title text={text} addedStyles={subtitle} />
+        <Title text={instruction?.title ?? ''} addedStyles={subtitle} />
       </View>
 
-      <View style={styles.instructions}>{children}</View>
+      <View style={styles.instructions}>
+        <FlatList
+          data={instruction?.cycles}
+          keyExtractor={(cycles) => cycles?.id.toString() ?? ''}
+          renderItem={({ item }) => <Text>{item.title}</Text>}
+        />
+      </View>
 
       <View style={styles.button}>
         <Button text="Begin Breathing!" />
       </View>
     </View>
-    // <Modal
-    //   description={<Description data={data} />}
-    //   image={<AlingedImage home={false} addedStyles={backgroundImage} width={wp('200%')} height={hp('80%')} />}
-    // >
-    //   <Text>Stoooof goes here!</Text>
-    // </Modal>
   );
 };
 

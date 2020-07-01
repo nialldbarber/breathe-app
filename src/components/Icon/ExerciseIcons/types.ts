@@ -5,6 +5,6 @@ interface AddedStyles {
 export interface Props {
   height?: number;
   width?: number;
-  home: boolean;
+  home?: boolean;
   addedStyles?: AddedStyles;
 }

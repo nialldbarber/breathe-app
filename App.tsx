@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Home from '@/screens/Home/Home';
 import Timer from '@/screens/Timer/Timer';
 import AwakeScreen from '@/screens/Exercises/Awake';
-import AlignedScreen from '@/screens/Exercises/Aligned';
+import AlignedScreen from '@/screens/Exercises/Aligned/Aligned';
 import AwareScreen from '@/screens/Exercises/Aware';
 import AsleepScreen from '@/screens/Exercises/Asleep';
 import Icon from '@/components/Icon/Icon';

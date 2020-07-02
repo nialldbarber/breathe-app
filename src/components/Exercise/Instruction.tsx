@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { boxShadow } from '@/styles/utils/theme/mixins';
+import { colors } from '@/styles/utils/colors';
 
 interface InstructionProps {
   text: string;
@@ -21,7 +22,7 @@ const Instruction: FC<InstructionProps> = ({
       <View
         style={[styles.circle, { backgroundColor: color, width, height }]}
       />
-      <Text>{text}</Text>
+      <Text style={styles.instructions}>{text}</Text>
     </View>
   );
 };
@@ -37,6 +38,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     shadowOpacity: 0.1,
     shadowRadius: 0.8,
+  },
+  instructions: {
+    fontWeight: '500',
+    fontSize: wp('4%'),
+    color: colors.black,
   },
 });
 

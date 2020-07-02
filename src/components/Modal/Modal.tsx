@@ -1,5 +1,5 @@
 import React, { ReactChild, FC } from 'react';
-import { Modal } from 'react-native';
+import { Modal, ScrollView, View } from 'react-native';
 import Button from '@/components/Button/Button';
 
 interface ModalContainerProps {
@@ -15,8 +15,12 @@ const ModalContainer: FC<ModalContainerProps> = ({
 }) => {
   return (
     <Modal visible={visible} animationType="slide">
-      <Button iconClose action={action} />
-      {children}
+      <Button type="close" action={action} />
+      <ScrollView>
+        <View style={{ padding: 40 }}>
+          <>{children}</>
+        </View>
+      </ScrollView>
     </Modal>
   );
 };

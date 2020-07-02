@@ -37,4 +37,10 @@ const exit: AnyStyles = {
   height: 15,
 };
 
-export { buttonContainer, button, exitContainer, exit };
+const infoContainer: AnyStyles = {
+  position: 'absolute',
+  top: wp('7%'),
+  right: wp('4%'),
+};
+
+export { buttonContainer, button, exitContainer, exit, infoContainer };

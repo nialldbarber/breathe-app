@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -12,24 +12,35 @@ import Aligned from '@/components/Icon/ExerciseIcons/Aligned';
 import ModalContainer from '@/components/Modal/Modal';
 
 const AlignedScreen: FC<AlignedScreenProps> = () => {
-  const { visible, handleOpenModal, handleCloseModal } = useSetVisibility();
+  const {
+    visible: exerciseVisible,
+    handleOpenModal: exerciseOpen,
+    handleCloseModal: exerciseClose,
+  } = useSetVisibility();
+
+  const {
+    visible: infoVisible,
+    handleOpenModal: infoOpen,
+    handleCloseModal: infoClose,
+  } = useSetVisibility();
 
   return (
     <View style={styles.container}>
       <Exercise
         instruction={instructions}
         background={<Aligned width={wp('120%')} height={hp('80%')} />}
-        {...{ handleOpenModal }}
+        action={exerciseOpen}
+        info={infoOpen}
       >
-        <ModalContainer {...{ visible }} action={handleCloseModal}>
-          <ScrollView>
-            <View style={{ padding: 40 }}>
-              <Text style={[styles.exercise, { opacity: visible ? 1 : 0 }]}>
-                Hello
-              </Text>
-            </View>
-          </ScrollView>
-        </ModalContainer>
+        <>
+          <ModalContainer visible={exerciseVisible} action={exerciseClose}>
+            <Text>Exercise</Text>
+          </ModalContainer>
+
+          <ModalContainer visible={infoVisible} action={infoClose}>
+            <Text>Info</Text>
+          </ModalContainer>
+        </>
       </Exercise>
     </View>
   );

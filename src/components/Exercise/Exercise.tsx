@@ -1,5 +1,5 @@
 import React, { FC, ReactChild, ReactNode } from 'react';
-import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import ExerciseLayout from '@/components/Layout/Exercise';
 import Instruction from '@/components/Exercise/Instruction';
 import Button from '@/components/Button/Button';
@@ -7,35 +7,45 @@ import Title from '@/components/Typography/Title';
 import { subtitle } from '@/styles/utils/typography';
 import { Instructions } from '@/screens/Exercises/Aligned/types';
 import { backgroundImage } from '@/styles/utils/layout/icons';
+import {
+  title,
+  intro,
+  instructions,
+  button,
+  list,
+} from '@/styles/components/exercise';
 
 interface ExerciseProps {
   instruction?: Instructions;
   background?: ReactNode;
+  action?: () => void;
+  info?: () => void;
   children?: ReactChild;
-  handleOpenModal?: () => void;
 }
 
 const Exercise: FC<ExerciseProps> = ({
   instruction,
   background,
-  handleOpenModal,
+  action,
+  info,
   children,
 }) => {
   return (
     <ExerciseLayout>
       <>
         <View style={backgroundImage}>{background}</View>
-        <View style={styles.title}>
+
+        <View style={intro}>
+          <Button type="info" action={info} />
+        </View>
+
+        <View style={title}>
           <Title text={instruction?.title ?? ''} addedStyles={subtitle} />
         </View>
 
-        <View style={styles.instructions}>
+        <View style={instructions}>
           <FlatList
-            contentContainerStyle={{
-              flexGrow: 1,
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
+            contentContainerStyle={list}
             data={instruction?.cycles}
             keyExtractor={(cycles) => cycles?.id.toString() ?? ''}
             renderItem={({ item }) => (
@@ -51,28 +61,12 @@ const Exercise: FC<ExerciseProps> = ({
 
         {children}
 
-        <View style={styles.button}>
-          <Button text="Begin Breathing!" action={handleOpenModal} />
+        <View style={button}>
+          <Button type="primary" text="Begin Breathing!" {...{ action }} />
         </View>
       </>
     </ExerciseLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  instructions: {
-    flex: 12,
-  },
-  button: {
-    flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Exercise;

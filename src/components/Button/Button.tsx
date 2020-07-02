@@ -1,53 +1,37 @@
-import React, { FC } from 'react';
-import { TouchableHighlight, StyleSheet, Text, Image } from 'react-native';
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
-import {
-  buttonContainer,
-  button,
-  exitContainer,
-  exit,
-} from '@/styles/components/button';
-import { colors } from '@/styles/utils/colors';
+import React, { FC, ReactChild } from 'react';
+import DefaultButton from '@/components/Button/Default';
+import CloseButton from '@/components/Button/Close';
+import InfoButton from '@/components/Button/Info';
 
 interface ButtonProps {
+  type: string;
   text?: string;
-  iconClose?: boolean;
   addedStyles?: {
     [key: string]: any;
   };
   action?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ text, iconClose, addedStyles, action }) => {
-  return (
-    <TouchableHighlight
-      style={
-        iconClose
-          ? exitContainer
-          : [buttonContainer, styles.buttonContainer, addedStyles]
-      }
-      underlayColor={colors.purple}
-      onPress={action}
-    >
-      {iconClose ? (
-        <Image style={exit} source={require('assets/exit.png')} />
-      ) : (
-        <Text style={[button, styles.text]}>{text}</Text>
-      )}
-    </TouchableHighlight>
-  );
-};
+const Button: FC<ButtonProps> = ({ type, text, addedStyles, action }) => {
+  let buttonType: ReactChild;
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: wp('4%'),
-  },
-  buttonContainer: {
-    width: wp('50%'),
-  },
-});
+  switch (type) {
+    case 'primary':
+      buttonType = (
+        <DefaultButton {...{ text }} {...{ action }} {...{ addedStyles }} />
+      );
+      break;
+    case 'close':
+      buttonType = <CloseButton {...{ action }} />;
+      break;
+    case 'info':
+      buttonType = <InfoButton {...{ action }} />;
+      break;
+    default:
+      return null;
+  }
+
+  return buttonType;
+};
 
 export default Button;

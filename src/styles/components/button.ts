@@ -28,6 +28,7 @@ const exitContainer: AnyStyles = {
   right: wp('4%'),
   backgroundColor: colors.purple,
   borderRadius: 50,
+  zIndex: 4,
   ...boxShadow,
 };
 

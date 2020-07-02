@@ -1,26 +1,42 @@
 import React, { FC } from 'react';
-import { TouchableHighlight, StyleSheet, Text } from 'react-native';
+import { TouchableHighlight, StyleSheet, Text, Image } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import { buttonContainer, button } from '@/styles/components/button';
+import {
+  buttonContainer,
+  button,
+  exitContainer,
+  exit,
+} from '@/styles/components/button';
 import { colors } from '@/styles/utils/colors';
 
 interface ButtonProps {
-  text: string;
+  text?: string;
+  iconClose?: boolean;
   addedStyles?: {
     [key: string]: any;
   };
+  action?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ text, addedStyles }) => {
+const Button: FC<ButtonProps> = ({ text, iconClose, addedStyles, action }) => {
   return (
     <TouchableHighlight
-      style={[buttonContainer, styles.buttonContainer, addedStyles]}
+      style={
+        iconClose
+          ? exitContainer
+          : [buttonContainer, styles.buttonContainer, addedStyles]
+      }
       underlayColor={colors.purple}
+      onPress={action}
     >
-      <Text style={[button, styles.text]}>{text}</Text>
+      {iconClose ? (
+        <Image style={exit} source={require('assets/exit.png')} />
+      ) : (
+        <Text style={[button, styles.text]}>{text}</Text>
+      )}
     </TouchableHighlight>
   );
 };

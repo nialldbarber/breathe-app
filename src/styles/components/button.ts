@@ -1,4 +1,7 @@
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 import { AnyStyles } from '@/styles/types';
 import { colors } from '@/styles/utils/colors';
 import { boxShadow } from '@/styles/utils/theme/mixins';
@@ -21,8 +24,8 @@ const exitContainer: AnyStyles = {
   position: 'absolute',
   marginBottom: 20,
   padding: 10,
-  top: hp('3%'),
-  right: 10,
+  top: hp('6%'),
+  right: wp('4%'),
   backgroundColor: colors.purple,
   borderRadius: 50,
   ...boxShadow,

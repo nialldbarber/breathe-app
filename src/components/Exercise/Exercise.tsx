@@ -12,9 +12,15 @@ interface ExerciseProps {
   instruction?: Instructions;
   background?: ReactNode;
   children?: ReactChild;
+  handleOpenModal?: () => void;
 }
 
-const Exercise: FC<ExerciseProps> = ({ instruction, background, children }) => {
+const Exercise: FC<ExerciseProps> = ({
+  instruction,
+  background,
+  handleOpenModal,
+  children,
+}) => {
   return (
     <ExerciseLayout>
       <>
@@ -43,8 +49,10 @@ const Exercise: FC<ExerciseProps> = ({ instruction, background, children }) => {
           />
         </View>
 
+        {children}
+
         <View style={styles.button}>
-          <Button text="Begin Breathing!" />
+          <Button text="Begin Breathing!" action={handleOpenModal} />
         </View>
       </>
     </ExerciseLayout>

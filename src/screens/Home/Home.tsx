@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Text } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import Card from '@/components/Card/Card';
 import Awake from '@/components/Icon/ExerciseIcons/Awake';
 import Aligned from '@/components/Icon/ExerciseIcons/Aligned';
@@ -10,23 +11,28 @@ import { title } from '@/styles/utils/typography';
 
 const Home = ({ navigation: { navigate } }) => {
   return (
-    <HomeLayout>
-      <>
-        <Text style={title}>Exercises</Text>
-        <Card name="Awake" navigate={navigate}>
-          <Awake home />
-        </Card>
-        <Card name="Aligned" navigate={navigate}>
-          <Aligned home />
-        </Card>
-        <Card name="Aware" navigate={navigate}>
-          <Aware home />
-        </Card>
-        <Card name="Asleep" navigate={navigate}>
-          <Asleep home />
-        </Card>
-      </>
-    </HomeLayout>
+    <>
+      <SafeAreaView style={{ backgroundColor: 'white' }}>
+        <StatusBar style="dark" />
+      </SafeAreaView>
+      <HomeLayout>
+        <>
+          <Text style={title}>Exercises</Text>
+          <Card name="Awake" navigate={navigate}>
+            <Awake home />
+          </Card>
+          <Card name="Aligned" navigate={navigate}>
+            <Aligned home />
+          </Card>
+          <Card name="Aware" navigate={navigate}>
+            <Aware home />
+          </Card>
+          <Card name="Asleep" navigate={navigate}>
+            <Asleep home />
+          </Card>
+        </>
+      </HomeLayout>
+    </>
   );
 };
 

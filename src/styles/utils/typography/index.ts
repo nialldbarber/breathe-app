@@ -7,7 +7,7 @@ import { AnyStyles } from '@/styles/types';
 
 const title: AnyStyles = {
   flex: 1,
-  left: wp('-25%'),
+  left: wp('-28%'),
   color: colors.black,
   fontSize: hp('3%'),
   fontWeight: '700',

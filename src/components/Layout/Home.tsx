@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 70,
+    paddingTop: 30,
     paddingBottom: 30,
   },
 });

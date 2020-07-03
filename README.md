@@ -12,3 +12,9 @@
 - [x] Figure out a decent modal design and functionality
 
 - [ ] Breathing animation
+
+### Animations
+
+- Background image fades in
+- Title & info fade from top
+- Button fades from bottom

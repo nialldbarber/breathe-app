@@ -6,11 +6,12 @@ const title: AnyStyles = {
   alignItems: 'center',
 };
 
-const intro: AnyStyles = {
+const infoButton: AnyStyles = {
   position: 'absolute',
   top: 0,
   right: 0,
   zIndex: 4,
+  opacity: 0.7,
 };
 
 const instructions: AnyStyles = {
@@ -29,4 +30,4 @@ const list: AnyStyles = {
   alignItems: 'center',
 };
 
-export { title, intro, instructions, button, list };
+export { title, infoButton, instructions, button, list };

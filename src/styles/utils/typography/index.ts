@@ -15,9 +15,9 @@ const title: AnyStyles = {
 
 const subtitle: AnyStyles = {
   fontSize: wp('5%'),
-  textAlign: 'center',
   fontWeight: '700',
   color: colors.black,
+  margin: 0,
 };
 
 export { title, subtitle };

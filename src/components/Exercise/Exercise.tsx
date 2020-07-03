@@ -9,7 +9,7 @@ import { Instructions } from '@/screens/Exercises/Aligned/types';
 import { backgroundImage } from '@/styles/utils/layout/icons';
 import {
   title,
-  intro,
+  infoButton,
   instructions,
   button,
   list,
@@ -35,12 +35,11 @@ const Exercise: FC<ExerciseProps> = ({
       <>
         <View style={backgroundImage}>{background}</View>
 
-        <View style={intro}>
-          <Button type="info" action={info} />
-        </View>
-
         <View style={title}>
           <Title text={instruction?.title ?? ''} addedStyles={subtitle} />
+          <View style={infoButton}>
+            <Button type="info" action={info} />
+          </View>
         </View>
 
         <View style={instructions}>
